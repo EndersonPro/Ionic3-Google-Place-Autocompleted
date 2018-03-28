@@ -1,0 +1,17 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Google Place AutoComplete
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-searchbar (ionInput)="getLocals($event)" debounce="700" placeholder="{{placeholder}}"></ion-searchbar>
+  <ion-list>
+    <ion-item *ngFor="let item of locals" (click)="detail(item)">{{item.description}}</ion-item>
+    <ion-item *ngIf="locals != null && locals.length > 0"></ion-item>
+  </ion-list>
+
+</ion-content>
